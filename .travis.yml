@@ -24,9 +24,13 @@ script:
   - echo "building FE"
   - docker build -t udams_fe ./front_end
   - docker tag udams_fe olaysco/udams_fe:latest
+  - echo "building proxypass"
+  - docker build -t udams_pp ./proxy_pass
+  - docker tag udams_pp olaysco/udams_pp:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push olaysco/udams_us
   - docker push olaysco/udams_fs
   - docker push olaysco/udams_fe
+  - docker push olaysco/udams_pp
