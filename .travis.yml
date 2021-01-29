@@ -27,4 +27,6 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push YOUR_DOCKER_HUB/simple-node
+  - docker push olaysco/udams_us
+  - docker push olaysco/udams_fs
+  - docker push olaysco/udams_fe
