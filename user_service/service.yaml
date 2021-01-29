@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: udamsus
+spec:
+  selector:
+    app: udamsus
+    tier: userService
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: http

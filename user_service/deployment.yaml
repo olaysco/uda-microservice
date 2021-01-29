@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udamsus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udamsus
+      tier: userService
+  template:
+    metadata:
+      labels:
+        app: udamsus
+        tier: userService
+    spec:
+      hostname: udamsus
+      containers:
+      - name: udamsus
+        image: olaysco/udams_us
+        envFrom:
+        - secretRef:
+            name: appsecret
+        ports:
+        - name: http
+          containerPort: 80

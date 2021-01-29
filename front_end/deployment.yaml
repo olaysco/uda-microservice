@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udamsfe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udamsfe
+      tier: feService
+  template:
+    metadata:
+      labels:
+        app: udamsfe
+        tier: feService
+    spec:
+      hostname: udamsfe
+      containers:
+      - name: udamsfe
+        image: olaysco/udams_fe
+        envFrom:
+        - secretRef:
+            name: appsecret
+        ports:
+        - name: http
+          containerPort: 8080

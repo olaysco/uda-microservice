@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udamspp
+spec:
+  selector:
+    matchLabels:
+      app: udamspp
+      tier: proxyPass
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: udamspp
+        tier: proxyPass
+    spec:
+      hostname: udamspp
+      containers:
+        - name: udamspp
+          image: "olaysco/udams_pp"

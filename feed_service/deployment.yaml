@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udamsfs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udamsfs
+      tier: feedService
+  template:
+    metadata:
+      labels:
+        app: udamsfs
+        tier: feedService
+    spec:
+      hostname: udamsfs
+      containers:
+      - name: udamsfs
+        image: olaysco/udams_fs
+        envFrom:
+        - secretRef:
+            name: appsecret
+        ports:
+        - name: http
+          containerPort: 8080
