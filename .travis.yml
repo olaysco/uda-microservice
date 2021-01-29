@@ -16,14 +16,14 @@ before_script:
 script:
   - docker --version # print the version for logging
   - echo "building User service"
-  - docker build -t udams_fe ./user_service
-  - docker tag simple-node olaysco/udams_us:latest
+  - docker build -t udams_us ./user_service
+  - docker tag udams_us olaysco/udams_us:latest
   - echo "building Feed service"
-  - docker build -t udams_fe ./feed_service
-  - docker tag simple-node olaysco/udams_fs:latest
+  - docker build -t udams_fs ./feed_service
+  - docker tag udams_fs olaysco/udams_fs:latest
   - echo "building FE"
   - docker build -t udams_fe ./front_end
-  - docker tag simple-node olaysco/udams_fe:latest
+  - docker tag udams_fe olaysco/udams_fe:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
