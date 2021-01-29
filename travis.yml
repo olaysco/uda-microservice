@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+
+# Pre-testing installs
+install:
+  - echo "nothing needs to be installed"
+
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  - echo "building User service"
+  - docker build -t udams_fe ./user_service
+  - docker tag simple-node olaysco/udams_us:latest
+  - echo "building Feed service"
+  - docker build -t udams_fe ./feed_service
+  - docker tag simple-node olaysco/udams_fs:latest
+  - echo "building FE"
+  - docker build -t udams_fe ./front_end
+  - docker tag simple-node olaysco/udams_fe:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push YOUR_DOCKER_HUB/simple-node
