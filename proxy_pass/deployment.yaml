@@ -18,5 +18,4 @@ spec:
       hostname: udamspp
       containers:
         - name: udamspp
-          image: "udams_pp"
-          imagePullPolicy: Never
+          image: "olaysco/udams_pp"
