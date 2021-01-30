@@ -18,6 +18,13 @@ spec:
       containers:
       - name: udamsfe
         image: olaysco/udams_fe
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "200Mi"
+            cpu: "100m"
         envFrom:
         - secretRef:
             name: appsecret
