@@ -7,3 +7,5 @@ The advantage of this approach are
 - Helps to enforce the one process per container principle
 - Individual horizontal scaling of each of the service as per computation and traffic needs (saves cost).
 - No perfect software, there would always be need to debug a service in production, with each of the service in their pod I can easily inspect the logs and know where the fault is.
+
+![Architecture rough sketch](https://images.unsplash.com/photo-1612021595824-0194cdb0e996?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)
