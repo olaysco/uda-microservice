@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: udamsfe
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udamsfe
@@ -30,4 +30,4 @@ spec:
             name: appsecret
         ports:
         - name: http
-          containerPort: 4200
+          containerPort: 8080
