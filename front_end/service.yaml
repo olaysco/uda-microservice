@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: udamsfe
 spec:
+  type: LoadBalancer
   selector:
     app: udamsfe
     tier: feService
   ports:
   - protocol: TCP
-    port: 8080
-    targetPort: http
+    port: 80
+    targetPort: 4200

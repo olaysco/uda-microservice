@@ -20,14 +20,14 @@ spec:
         image: olaysco/udams_fe
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "100m"
+            memory: "512Mi"
+            cpu: "500m"
           limits:
-            memory: "200Mi"
-            cpu: "100m"
+            memory: "1024Mi"
+            cpu: "500m"
         envFrom:
         - secretRef:
             name: appsecret
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 4200
