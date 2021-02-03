@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: udamsfe
+  name: udamsfes
 spec:
-  type: LoadBalancer
   selector:
     app: udamsfe
     tier: feService
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 4200
+    targetPort: http
+  type: LoadBalancer
